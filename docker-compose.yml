@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  server:
+    build: .
+    image: server
+    container_name: server
+    command: npm run dev
+    ports:
+      - 9220:9229
+    volumes:
+      - ./:/app
+      - /app/node_modules

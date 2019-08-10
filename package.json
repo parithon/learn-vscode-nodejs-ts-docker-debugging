@@ -1,0 +1,23 @@
+{
+  "name": "learn-vscode-nodejs-ts-debugging",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "start": "nodemon",
+    "debug": "tsc -b && node --inspect=0.0.0.0:9229 build/index.js",
+    "dev": "nodemon -e ts,tsx --watch src --exec 'npm run debug'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.1",
+    "typescript": "^3.5.3"
+  }
+}
