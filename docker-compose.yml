@@ -1,13 +1,28 @@
 version: '3.7'
 
 services:
-  server:
-    build: .
-    image: server
-    container_name: server
+  console:
+    build:
+      context: ./services/console
+      dockerfile: dockerfile
+    image: console
+    container_name: console
     command: npm run dev
     ports:
       - 9220:9229
     volumes:
-      - ./:/app
+      - ./services/console:/app
+      - /app/node_modules
+  web:
+    build: 
+      context: ./services/web
+      dockerfile: dockerfile
+    image: web
+    container_name: web
+    command: npm run dev
+    ports:
+      - 9221:9229
+      - 3000:3000
+    volumes:
+      - ./services/web:/app
       - /app/node_modules

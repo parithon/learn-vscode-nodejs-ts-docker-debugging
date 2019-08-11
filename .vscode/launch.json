@@ -18,9 +18,29 @@
     {
       "type": "node",
       "request": "attach",
-      "name": "Docker: Attach to Node",
+      "name": "Docker: Attach to Console",
       "port": 9220,
-      "remoteRoot": "/app"
+      "localRoot": "${workspaceFolder}/services/console",
+      "remoteRoot": "/app",
+      "restart": true
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Docker: Attach to Web",
+      "port": 9221,
+      "localRoot": "${workspaceFolder}/services/web",
+      "remoteRoot": "/app",
+      "restart": true
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Docker: Attach to All",
+      "configurations": [
+        "Docker: Attach to Console",
+        "Docker: Attach to Web"
+      ]
     }
   ]
 }
